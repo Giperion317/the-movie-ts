@@ -11,3 +11,6 @@ export async function fetchMovies() {
     });
     return response.data.results;
 }
+
+export async function fetchMovieFullInfo(id:string) {
+}
