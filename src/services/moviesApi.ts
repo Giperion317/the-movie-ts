@@ -31,3 +31,12 @@ export async function fetchVideo(id:string | undefined) {
   });
   return response.data.results;
 }
+
+export async function fetchMovieCast(id:string | undefined) {
+  const response = await axios(`/movie/${id}/credits`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+  return response.data.cast;
+}
