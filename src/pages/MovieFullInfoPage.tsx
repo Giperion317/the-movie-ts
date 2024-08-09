@@ -3,15 +3,11 @@ import { Link, Outlet, useParams } from "react-router-dom";
 
 import { fetchMovieFullInfo, fetchVideo } from "../services/moviesApi";
 
+import { MovieType } from "../types/movie";
+
 export const MovieFullInfoPage: React.FC = () => {
-  const [movie, setMovie] = useState<{
-    original_title: string;
-    poster_path: string;
-    vote_average: number;
-    overview: string;
-    genres: [{ name: string }];
-  } | null>(null);
-  const [video, setVideo] = useState<{ key: string }[] | null>(null);
+  const [movie, setMovie] = useState<Partial<MovieType>>({});
+  const [video, setVideo] = useState<{ key: string }[]>([]);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -30,13 +26,13 @@ export const MovieFullInfoPage: React.FC = () => {
               width='360'
             />
             <div>
-              <text>User Score: {movie.vote_average * 10}%</text>
+              {movie.vote_average && <text>User Score: {movie.vote_average * 10}%</text>}
               <hr />
               <h3>Overview</h3>
               <text>{movie.overview}</text>
               <hr />
               <h3>Genres</h3>
-              <text>{movie.genres.map((genre) => genre.name).join(" ")}</text>
+              <text>{movie.genres?.map((genre) => genre.name).join(" ")}</text>
               <hr />
               <h3>Trailer</h3>
               {video && (

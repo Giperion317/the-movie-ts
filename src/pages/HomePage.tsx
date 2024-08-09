@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { fetchMovies } from "../services/moviesApi";
 
+import { MoviesType } from "../types/movies";
+
 export const HomePage: React.FC = () => {
-  const [movies, setMovies] = useState<
-    { original_title: string; id: number; poster_path: string }[]
-  >([]);
+  const [movies, setMovies] = useState<MoviesType[]>([]);
 
   useEffect(() => {
     fetchMovies().then(setMovies);
