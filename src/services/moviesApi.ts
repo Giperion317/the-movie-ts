@@ -40,3 +40,13 @@ export async function fetchMovieCast(id:string | undefined) {
   });
   return response.data.cast;
 }
+
+export async function fetchMoviesSearch(query:string) {
+  const response = await axios('/search/movie', {
+    params: {
+      api_key: API_KEY,
+      query,
+    },
+  });
+  return response.data.results;
+}
