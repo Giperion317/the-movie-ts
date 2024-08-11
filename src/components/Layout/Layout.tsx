@@ -6,7 +6,7 @@ export const Layout: React.FC = () => {
     return (
         <>
             <header><Navigation/></header>
-            <main><Outlet></Outlet></main>
+            <main><Outlet/></main>
             <footer>Futer</footer>
         </>
     )

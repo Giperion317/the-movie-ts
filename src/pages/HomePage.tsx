@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { fetchMovies } from "../services/moviesApi";
+
+import { Movies } from "../components/Movies/Movies";
 
 import { MoviesType } from "../types/movies";
 
@@ -12,23 +13,8 @@ export const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <ul>
-      {movies &&
-        movies.map(({ original_title, id, poster_path }) => (
-          <li key={id}>
-            {/* <li to={`/movies/${id}`} state={{ from: location }}> */}
-            <Link to={`/search/${id}`}>
-              <img
-                src={"https://image.tmdb.org/t/p/original" + poster_path}
-                alt={original_title}
-                width="270"
-              />
-              <>
-                <h2>{original_title}</h2>
-              </>
-            </Link>
-          </li>
-        ))}
-    </ul>
+  <>
+      {movies.length && <Movies movies={ movies}/>}
+      </>
   );
 };

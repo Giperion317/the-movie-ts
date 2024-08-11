@@ -3,6 +3,9 @@ import { useSearchParams } from "react-router-dom"
 
 import { fetchMoviesSearch } from "../services/moviesApi"
 
+import { SearchForm } from "../components/SearchForm/SearchForm"
+import { Movies } from "../components/Movies/Movies"
+
 import { MoviesType } from "../types/movies"
 
 export const SearchPage: React.FC = () => {
@@ -21,18 +24,14 @@ export const SearchPage: React.FC = () => {
     })
     }, [query])
 
-    const submitHandler = (e: React.FormEvent) => {
-        e.preventDefault();
-         setSearchParams()
-        
-    }
+ const onSearchQuery = (searchQuery:string) => {
+    setSearchParams({ query: searchQuery });
+  };
 
     return (
         <>
-            <form onSubmit={submitHandler}>
-                <input type='text' name='query' />
-                <button type="submit">Search</button>
-            </form>
+    <SearchForm onSubmit={onSearchQuery} />
+    {movies && <Movies movies={ movies} />}
         </>
     )
 }

@@ -7,11 +7,15 @@ import { MovieType } from "../types/movie";
 
 export const MovieFullInfoPage: React.FC = () => {
   const [movie, setMovie] = useState<Partial<MovieType>>({});
-  const [video, setVideo] = useState<{ key: string }[]>([]);
+  const [video, setVideo] = useState<{key: string }[]>([]);
   const { movieId } = useParams();
 
+
+
   useEffect(() => {
-    fetchMovieFullInfo(movieId).then(setMovie);
+   
+    fetchMovieFullInfo(movieId).then(setMovie)
+
     fetchVideo(movieId).then(setVideo);
   }, [movieId]);
   return (
@@ -29,13 +33,13 @@ export const MovieFullInfoPage: React.FC = () => {
               {movie.vote_average && <text>User Score: {movie.vote_average * 10}%</text>}
               <hr />
               <h3>Overview</h3>
-              <text>{movie.overview}</text>
+              <p>{movie.overview}</p>
               <hr />
               <h3>Genres</h3>
-              <text>{movie.genres?.map((genre) => genre.name).join(" ")}</text>
+              <p>{movie.genres?.map((genre) => genre.name).join(" ")}</p>
               <hr />
               <h3>Trailer</h3>
-              {video && (
+              {video.length && (
                 <iframe
                   src={`https://www.youtube.com/embed/${video[0].key}`}
                   title={movie.original_title}
