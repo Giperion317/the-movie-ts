@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Link, Outlet, useParams, useNavigate, useLocation } from "react-router-dom";
 
 import { fetchMovieFullInfo, fetchVideo } from "../services/moviesApi";
 
@@ -9,6 +9,8 @@ export const MovieFullInfoPage: React.FC = () => {
   const [movie, setMovie] = useState<Partial<MovieType>>({});
   const [video, setVideo] = useState<{key: string }[]>([]);
   const { movieId } = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
 
 
 
@@ -22,6 +24,14 @@ export const MovieFullInfoPage: React.FC = () => {
     <>
       {movie && (
         <>
+          <button
+            type="button"
+            onClick={() => {
+              navigate(location?.state?.from ?? '/');
+            }}
+          >
+            Go back
+          </button>
           <h2>{movie.original_title}</h2>
           <div>
             <img
@@ -48,7 +58,7 @@ export const MovieFullInfoPage: React.FC = () => {
               )}
             </div>
           </div>
-          <Link to={"cast"}>Cast</Link>
+          <Link to={"cast"} state={location.state}>Cast</Link>
           <Outlet />
         </>
       )}

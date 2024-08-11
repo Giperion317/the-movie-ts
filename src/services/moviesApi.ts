@@ -23,6 +23,7 @@ export async function fetchMovieFullInfo(id:string | undefined) {
   return response.data;
 }
 
+
 export async function fetchVideo(id:string | undefined) {
   const response = await axios(`/movie/${id}/videos`, {
     params: {
