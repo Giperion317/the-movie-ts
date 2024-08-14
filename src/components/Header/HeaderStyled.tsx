@@ -1,10 +1,8 @@
-import { Flex, FlexProps } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 
-interface HeaderStyledBoxProps extends FlexProps {
-  children: React.ReactNode;
-}
+import { StyledFlexProps } from "../../types/props";
 
-export const HeaderStyledBox: React.FC<HeaderStyledBoxProps> = ({ children }) => {
+export const HeaderStyledBox: React.FC<StyledFlexProps> = ({ children }) => {
   return (
     <Flex
       as="header"

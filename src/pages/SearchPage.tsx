@@ -31,7 +31,7 @@ export const SearchPage: React.FC = () => {
     return (
         <>
     <SearchForm onSubmit={onSearchQuery} />
-    {movies && <Movies movies={ movies} />}
+    {/* {movies && <Movies movies={ movies} />} */}
         </>
     )
 }
