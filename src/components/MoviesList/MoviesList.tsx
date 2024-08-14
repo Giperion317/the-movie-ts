@@ -7,6 +7,10 @@ import { PageContainer } from "../PageContainer/PageContainer";
 
 import { PopularMovies } from "./PopularMovies";
 
+import { TrendMovie } from './TrendMovie';
+
+import { TopMovies } from './TopMovies';
+
 import { ScrollProgress } from "../ScrollProgress";
 
 import { MoviesListBox, ListTypeTitle } from "./MoviesListStyled";
@@ -61,9 +65,9 @@ const [totalPages, setTotalPages] = useState<number | null>(null);
               useWindow={false}
             >
               <ListTypeTitle title={"trend movie to watch"} />
-              {/* <TrendMovie movie={movies[0]} /> */}
+              <TrendMovie movie={movies[0]} />
               <ListTypeTitle title={"top movies this week"} accent />
-              {/* <TopMovies movies={movies.slice(1, 4)} /> */}
+              <TopMovies movies={movies.slice(1, 4)} />
               <ListTypeTitle title={"popular movies today"} accent />
               <PopularMovies movies={movies.slice(4)} />
             </InfiniteScroll>

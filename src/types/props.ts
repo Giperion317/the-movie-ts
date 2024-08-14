@@ -41,7 +41,7 @@ export interface ScrollProgressProps {
   max: number;
 }
 
-export interface PopularMoviesProps {
+export interface MoviesProps {
   movies: MoviesType[];
 }
 
@@ -51,9 +51,29 @@ export interface PopularMoviesItemProps {
   title: string;
 }
 
-export interface PopularMoviesItemBoxProps {
+export interface MoviesItemBoxProps {
   children?: React.ReactNode;
-  poster: string;
-  id: number;
-  title: string;
+  poster?: string;
+  id?: number;
+  title?: string;
+}
+
+export interface TopMoviesItemProps {
+  poster?: string;
+  id?: number;
+  title?: string;
+  year?: string;
+  overview?: string;
+}
+
+export interface TrendMovieProps {
+  movie: MoviesType;
+}
+
+export interface TrendMovieStyledProps {
+  id?: number;
+  title?: string;
+  year?: string;
+  overview?: string;
+  rating?:string;
 }

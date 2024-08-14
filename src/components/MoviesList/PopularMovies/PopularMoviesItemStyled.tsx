@@ -3,9 +3,9 @@ import slugify from "react-slugify";
 import { Box } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-import { PopularMoviesItemBoxProps } from "../../../types/props";
+import { MoviesItemBoxProps } from "../../../types/props";
 
-export const PopularMoviesItemBox:React.FC<PopularMoviesItemBoxProps> = ({ children, title, id, poster}) => {
+export const PopularMoviesItemBox:React.FC<MoviesItemBoxProps> = ({ children, title, id, poster}) => {
   return (
     <Box
       as={Link}
