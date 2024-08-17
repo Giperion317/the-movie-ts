@@ -6,7 +6,6 @@ import {
   TrendMovieYear,
   TrendMovieOverview,
   TrendMovieTrailerButton,
-  TrendMovieInfoButton,
   TrendMovieButtonsBox,
 } from "./TrendMovieStyled";
 
@@ -24,8 +23,7 @@ export const TrendMovie:React.FC<TrendMovieProps> = ({
       </TrendMovieRatingYearBox>
       <TrendMovieOverview overview={overview} />
       <TrendMovieButtonsBox>
-        <TrendMovieTrailerButton />
-          <TrendMovieInfoButton id={id} title={title} />
+        <TrendMovieTrailerButton id={id} title={title}/>
       </TrendMovieButtonsBox>
     </TrendMovieBox>
   );

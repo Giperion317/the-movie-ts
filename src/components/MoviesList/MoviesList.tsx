@@ -37,16 +37,6 @@ const [totalPages, setTotalPages] = useState<number | null>(null);
     });
   }, [page]);
 
-
-//   useEffect(() => {
-//     fetchMovies(page).then(({ results, total_pages }) => {
-//         page === 1 && setMovies(results);
-//       page > 1 && setMovies((movies) => [...movies, ...results]);
-//       total_pages > 20 ? setTotalPages(20) : setTotalPages(total_pages);
-//       setHasMore(true);
-//     });
-//   }, [page]);
-
   const nextPage = () => {
     if (page === totalPages) return;
     setPage(page + 1);

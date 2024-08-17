@@ -11,7 +11,7 @@ import {
 
 import { StyledFlexProps, TrendMovieStyledProps } from "../../../types/props";
 
-export const TrendMovieBox:React.FC<StyledFlexProps> = ({ children }) => {
+export const TrendMovieBox: React.FC<StyledFlexProps> = ({ children }) => {
   return (
     <Flex
       as={"div"}
@@ -24,7 +24,7 @@ export const TrendMovieBox:React.FC<StyledFlexProps> = ({ children }) => {
   );
 };
 
-export const TrendMovieTitle:React.FC<TrendMovieStyledProps> = ({ title }) => {
+export const TrendMovieTitle: React.FC<TrendMovieStyledProps> = ({ title }) => {
   return (
     <Text
       as={"h2"}
@@ -41,7 +41,9 @@ export const TrendMovieTitle:React.FC<TrendMovieStyledProps> = ({ title }) => {
   );
 };
 
-export const TrendMovieRatingYearBox:React.FC<StyledFlexProps> = ({ children }) => {
+export const TrendMovieRatingYearBox: React.FC<StyledFlexProps> = ({
+  children,
+}) => {
   return (
     <Flex as={"div"} gap={"14px"} mb={"20px"}>
       {children}
@@ -49,7 +51,9 @@ export const TrendMovieRatingYearBox:React.FC<StyledFlexProps> = ({ children }) 
   );
 };
 
-export const TrendMovieRating:React.FC<TrendMovieStyledProps> = ({ rating }) => {
+export const TrendMovieRating: React.FC<TrendMovieStyledProps> = ({
+  rating,
+}) => {
   return (
     <Flex
       as={"div"}
@@ -91,7 +95,7 @@ export const TrendMovieRating:React.FC<TrendMovieStyledProps> = ({ rating }) => 
   );
 };
 
-export const TrendMovieYear:React.FC<TrendMovieStyledProps> = ({ year }) => {
+export const TrendMovieYear: React.FC<TrendMovieStyledProps> = ({ year }) => {
   return (
     <Flex as={"div"} justifyContent={"center"} alignItems={"center"}>
       <Text
@@ -108,7 +112,9 @@ export const TrendMovieYear:React.FC<TrendMovieStyledProps> = ({ year }) => {
   );
 };
 
-export const TrendMovieOverview:React.FC<TrendMovieStyledProps> = ({ overview }) => {
+export const TrendMovieOverview: React.FC<TrendMovieStyledProps> = ({
+  overview,
+}) => {
   return (
     <Text
       as={"p"}
@@ -124,9 +130,18 @@ export const TrendMovieOverview:React.FC<TrendMovieStyledProps> = ({ overview })
   );
 };
 
-export const TrendMovieTrailerButton:React.FC = () => {
+export const TrendMovieTrailerButton: React.FC<TrendMovieStyledProps> = ({
+  id,
+  title,
+}) => {
   return (
-    <Button variant={"colorButton"} w={"100px"} mr={10}>
+    <Button
+      as={Link}
+      to={`/search/movie/${slugify(title)}/${id}`}
+      variant={"colorButton"}
+      w={"100px"}
+      mr={10}
+    >
       <Flex justifyContent={"center"} alignItems={"center"} gap={"4px"}>
         <Icon width="22" height="22" viewBox="0 0 22 22">
           <path
@@ -142,22 +157,9 @@ export const TrendMovieTrailerButton:React.FC = () => {
   );
 };
 
-export const TrendMovieInfoButton:React.FC<TrendMovieStyledProps> = ({ id, title }) => {
-  return (
-    <Button
-      as={Link}
-      to={`/search/movie/${slugify(title)}/${id}`}
-      variant={"translucentButton"}
-      w={"20px"}
-    >
-      <Flex justifyContent={"center"} alignItems={"center"} gap={"4px"}>
-        <Text>i</Text>
-      </Flex>
-    </Button>
-  );
-};
-
-export const TrendMovieButtonsBox:React.FC<StyledFlexProps> = ({ children }) => {
+export const TrendMovieButtonsBox: React.FC<StyledFlexProps> = ({
+  children,
+}) => {
   return (
     <Flex justifyContent={"space-start"} alignItems={"center"}>
       {children}
