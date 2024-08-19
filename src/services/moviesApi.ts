@@ -64,7 +64,7 @@ export async function fetchMoviesSearch(query: string, page: number) {
       page,
     },
   });
-  return response.data.results;
+  return response.data;
   } catch (error) {
     console.error(error);
   }

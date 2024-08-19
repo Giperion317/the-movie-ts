@@ -19,8 +19,6 @@ export const MovieCast: React.FC = () => {
     const fetchCast = async () => {
       try {
         const response = await fetchMovieCast(movieId);
-
-        console.log("API Response:", response);
         if (response && response && Array.isArray(response)) {
           setCast(response.slice(0, 10));
         } else {

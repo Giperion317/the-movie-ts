@@ -133,12 +133,6 @@ export const MovieOverview:React.FC<MovieStyledProps> = ({ overview }) => {
 
 export const MovieCastNames: React.FC<CastProps> = ({ cast }) => {
   const location = useLocation()
-
-  // let mainActors = cast[0]?.name || "No cast available";
-  // if (cast[1]) mainActors = `${mainActors}, ${cast[1].name}`;
-  // if (cast[2]) mainActors = `${mainActors}, ${cast[2].name}`;
-  // mainActors = `${mainActors}...`;
-
   let mainActors = "No cast available";
   if (cast && cast.length > 0) {
     const actorNames = cast.slice(0, 10).map((actor) => actor.name);

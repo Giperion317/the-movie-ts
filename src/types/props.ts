@@ -116,3 +116,8 @@ export interface MovieCastItemBoxProps extends BoxProps {
 export interface MovieInfoCastAktorProps {
   name: string;
 }
+
+export interface SearchEngineBoxProps extends FlexProps {
+  children: React.ReactNode;
+  backdrop: string;
+}
