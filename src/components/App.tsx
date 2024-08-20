@@ -1,27 +1,35 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React from "react";
+import { lazy } from "react";
+import { Routes, Route } from "react-router-dom";
 
-import { Layout } from './Layout/Layout';
-import { HomePage } from '../pages/HomePage';
-import { SearchPage } from '../pages/SearchPage';
-import { MovieFullInfoPage } from '../pages/MovieFullInfoPage';
-import { CastPage } from '../pages/CastPage';
+import { Layout } from "./Layout/Layout";
 
-const App:React.FC = () => {
+const HomePage = lazy(() => import("../pages/HomePage"));
+
+const SearchPage = lazy(() => import("../pages/SearchPage"));
+
+const MovieFullInfoPage = lazy(() => import("../pages/MovieFullInfoPage"));
+
+const CastPage = lazy(() => import("../pages/CastPage"));
+
+const App: React.FC = () => {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Layout/>}>
-          <Route index element={<HomePage/>}/>
-          <Route path='search' element={<SearchPage />} />
-          <Route path="search/movie/:slug/:movieId" element={<MovieFullInfoPage />}>
-          <Route path="cast" element={<CastPage />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="search" element={<SearchPage />} />
+          <Route
+            path="search/movie/:slug/:movieId"
+            element={<MovieFullInfoPage />}
+          >
+            <Route path="cast" element={<CastPage />} />
           </Route>
           <Route path="*" element={<HomePage />} />
         </Route>
-   </Routes>
+      </Routes>
     </>
   );
-}
+};
 
 export default App;

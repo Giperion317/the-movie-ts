@@ -1,5 +1,7 @@
 import { MoviesList } from "../components/MoviesList";
 
-export const HomePage: React.FC = () => {
+const HomePage: React.FC = () => {
   return <MoviesList />;
 };
+
+export default HomePage;

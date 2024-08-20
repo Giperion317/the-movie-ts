@@ -1,4 +1,4 @@
-import { Box, Input, IconButton } from "@chakra-ui/react";
+import { Box, Input, IconButton} from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 
 import { useState } from 'react';
@@ -7,6 +7,7 @@ import {
   mainFont,
   accentFontColor,
   secondaryAccentColor,
+  accentColor,
 } from "../../styles/variables";
 
 import { IPropForm } from '../../types/props';
@@ -18,7 +19,7 @@ export const SearchEngineForm: React.FC<IPropForm> = ({onSubmit}) => {
     setSearchQuery(e.target.value.toLowerCase())
   };
 
-  const submitHendler = (e:React.FormEvent) => {
+  const submitHandler = (e:React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim() === '') {
       return alert('Please enter name movie');
@@ -31,22 +32,17 @@ export const SearchEngineForm: React.FC<IPropForm> = ({onSubmit}) => {
     setSearchQuery('');
   };
   return (
-    <Box as={"form"} onSubmit={submitHendler} mb={"40px"}>
+    <Box as={"form"} onSubmit={submitHandler} mb={"40px"} display={"flex"}>
       <IconButton
         type="submit"
-  colorScheme='blue'
-  aria-label='Search database'
+  colorScheme="red"
+        aria-label='Search database'
+        mr={"10px"}
   icon={<SearchIcon />}
 />
       <Input
-        // type="text"
-        // autoComplete="off"
-        // autoFocus
-        // placeholder="Search movie name"
-        // onChange={queryHendler}
-        // name="searchQuery"
-        // value={searchQuery}
         borderColor={secondaryAccentColor}
+        focusBorderColor={accentColor}
         fontFamily={mainFont}
         fontSize={"22px"}
         color={accentFontColor}
@@ -62,22 +58,3 @@ export const SearchEngineForm: React.FC<IPropForm> = ({onSubmit}) => {
     </Box>
     )
 }
-
-// export const SearchEngineInput = ({ submitHandler, inputHandler }) => {
-//   return (
-//     <Box as={"form"} onSubmit={submitHandler} mb={"40px"}>
-//       <Input
-//         borderColor={secondaryAccentColor}
-//         fontFamily={mainFont}
-//         fontSize={"22px"}
-//         color={accentFontColor}
-//         placeholder="Search"
-//         name={"input"}
-//         _placeholder={{
-//           color: secondaryAccentColor,
-//           fontSize: "26px",
-//         }}
-//       />
-//     </Box>
-//   );
-// };

@@ -1,5 +1,7 @@
 import { Movie } from "../components/Movie";
 
-export const MovieFullInfoPage: React.FC = () => {
+const MovieFullInfoPage: React.FC = () => {
   return <Movie/>
 };
+
+export default MovieFullInfoPage;

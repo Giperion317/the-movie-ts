@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useParams, Outlet} from "react-router-dom";
 
 import { getTimeFromMins } from "../../services/getTimeFromMins";
 
 import { PageContainer } from "../PageContainer";
+
+import { Loader } from "../Loader";
 
 import { fetchMovieFullInfo, fetchMovieCast, fetchVideo} from "../../services/moviesApi";
 
@@ -35,12 +37,33 @@ export const Movie:React.FC = () => {
   const [cast, setCast] = useState<CastType[]>([]);
   const [trailer, setTrailer] = useState<VideoItem | null>(null);
   const { movieId } = useParams();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-  fetchMovieFullInfo(movieId).then(setMovie)
-    fetchVideo(movieId).then(setTrailer)
-    fetchMovieCast(movieId).then(setCast);
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const movieData = await fetchMovieFullInfo(movieId);
+        setMovie(movieData);
+
+        const trailerData = await fetchVideo(movieId);
+        setTrailer(trailerData);
+
+        const castData = await fetchMovieCast(movieId);
+        setCast(castData);
+      } catch (error) {
+        console.error("Error loading data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+  fetchData();
   }, [movieId]);
+  
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <>
@@ -64,7 +87,9 @@ export const Movie:React.FC = () => {
                 <MovieOverview overview={movie.overview} />
               </MovieInfoBox>
               {cast && <MovieCastNames cast={cast} />}
-              <Outlet/>
+              <Suspense fallback={<Loader />}>
+              <Outlet />
+              </Suspense>
             </MovieContainer>
           </PageContainer>
         </MovieBox>

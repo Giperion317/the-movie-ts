@@ -28,28 +28,22 @@ export const SearchEngine:React.FC = () => {
   };
 
   useEffect(() => {
-    if (!query) {
-      fetchMovies(page).then(({ results, total_pages }: FetchMoviesResponse) => {
-      if (page === 1) {
-        setMovies(results);
-      } else {
-        setMovies((prevMovies) => [...prevMovies, ...results]);
+    const loadMovies = async () => {
+      try {
+        const { results, total_pages }: FetchMoviesResponse = query
+          ? await fetchMoviesSearch(query, page)
+          : await fetchMovies(page);
+
+        setMovies((prevMovies) => (page === 1 ? results : [...prevMovies, ...results]));
+        setTotalPages(total_pages > 20 ? 20 : total_pages);
+        setHasMore(page < total_pages);
+      } catch (error) {
+        console.error("Error loading movies:", error);
+        setHasMore(false);
       }
-      setTotalPages(total_pages > 20 ? 20 : total_pages);
-      setHasMore(true);
-      });
-    }
-    if (query) {
-      fetchMoviesSearch(query, page).then(({ results, total_pages }: FetchMoviesResponse) => {
-      if (page === 1) {
-        setMovies(results);
-      } else {
-        setMovies((prevMovies) => [...prevMovies, ...results]);
-      }
-      setTotalPages(total_pages > 20 ? 20 : total_pages);
-        setHasMore(true);
-      });
-    }
+    };
+
+    loadMovies();
   }, [query, page]);
 
   const nextPage = () => {
@@ -85,3 +79,4 @@ export const SearchEngine:React.FC = () => {
     </>
   );
 };
+
