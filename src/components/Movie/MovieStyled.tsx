@@ -248,7 +248,7 @@ export const MovieTrailer: React.FC<MovieTrailerProps> = ({ trailer }) => {
       height={{ desk: "600px" }}
       src={`https://www.youtube.com/embed/${trailerKey}`}
       title="YouTube video player"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; allowFullScreen"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     ></Box>
   );
 };

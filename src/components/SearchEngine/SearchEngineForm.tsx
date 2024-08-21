@@ -15,22 +15,25 @@ import { IPropForm } from '../../types/props';
 export const SearchEngineForm: React.FC<IPropForm> = ({onSubmit}) => {
     const [searchQuery, setSearchQuery] = useState('')
 
-     const queryHendler = (e:React.ChangeEvent<HTMLInputElement>) => {
+     const queryHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value.toLowerCase())
   };
 
-  const submitHandler = (e:React.FormEvent) => {
+  const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim() === '') {
-      return alert('Please enter name movie');
+    const trimmedQuery = searchQuery.trim();
+    if (trimmedQuery === '') {
+      alert('Please enter a movie name');
+      return;
     }
-    onSubmit(searchQuery);
+    onSubmit(trimmedQuery);
     reset();
   };
 
   const reset = () => {
     setSearchQuery('');
   };
+
   return (
     <Box as={"form"} onSubmit={submitHandler} mb={"40px"} display={"flex"}>
       <IconButton
@@ -52,7 +55,7 @@ export const SearchEngineForm: React.FC<IPropForm> = ({onSubmit}) => {
           color: secondaryAccentColor,
           fontSize: "26px",
         }}
-        onChange={queryHendler}
+        onChange={queryHandler}
         value={searchQuery}
       />
     </Box>

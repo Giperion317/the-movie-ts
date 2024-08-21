@@ -1,8 +1,10 @@
 import React from "react";
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { Layout } from "./Layout/Layout";
+
+import { Loader } from "./Loader";
 
 const HomePage = lazy(() => import("../pages/HomePage"));
 
@@ -14,7 +16,7 @@ const CastPage = lazy(() => import("../pages/CastPage"));
 
 const App: React.FC = () => {
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -28,7 +30,7 @@ const App: React.FC = () => {
           <Route path="*" element={<HomePage />} />
         </Route>
       </Routes>
-    </>
+    </Suspense>
   );
 };
 
