@@ -28,7 +28,7 @@
 
 ## 📸 Screenshots
 
-| Light Theme                          | Filter Example                              |
+| Dark Theme                           | Filter Example                              |
 | ------------------------------------ | ------------------------------------------- |
 | ![Main View](./screenshots/main.png) | ![Filter Options](./screenshots/filter.png) |
 
