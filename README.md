@@ -1,46 +1,72 @@
-# Getting Started with Create React App
+# 🎬 MoviesVortex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**MoviesVortex** is a modern, responsive web application built with **React**, **TypeScript**, and **Chakra UI**. It allows users to search for movies, view detailed information, and explore trending titles using data from the [TMDB API](https://www.themoviedb.org/).
 
-## Available Scripts
+🔗 [Live Demo MoviesVortex](https://moviesvortex.netlify.app/)  
+🔗 [GitHub Repository](https://github.com/Giperion317/the-movie-ts)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 🔍 **Search Functionality**: Find movies by title with real-time suggestions.
+- 📄 **Detailed Movie Information**: View posters, overviews, ratings, release dates, genres, and cast.
+- 🌟 **Trending Movies**: Explore popular and trending movies.
+- 🎨 **Responsive Design**: Optimized for both desktop and mobile devices.
+- ⚡ **Fast Performance**: Efficient data fetching and state management.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Frontend**: [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/), [Chakra UI](https://chakra-ui.com/)
+- **Routing**: [React Router](https://reactrouter.com/)
+- **HTTP Client**: [Axios](https://axios-http.com/)
+- **API**: [TMDB API](https://www.themoviedb.org/documentation/api)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📸 Screenshots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Light Theme                          | Filter Example                              |
+| ------------------------------------ | ------------------------------------------- |
+| ![Main View](./screenshots/main.png) | ![Filter Options](./screenshots/filter.png) |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 📦 Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. **Clone the repository**:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ````bash
+   git clone https://github.com/Giperion317/the-movie-ts.git
+   cd the-movie-ts
+   npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   Create a .env file in the root directory and add your TMDB API key:
+   REACT_APP_TMDB_API_KEY=your_tmdb_api_key
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   ```bash
+   npm start
+   ````
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🧩 Future Enhancements
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 🗂️ Favorites: Allow users to save favorite movies.
+- 🌐 Internationalization: Support multiple languages.
+- 🧠 Recommendations: Suggest movies based on user preferences.
+- 🔍 Advanced Filters: Filter movies by genre, rating, and release date.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+Anatolii Pysmennyi — **[GitHub](https://github.com/Giperion317)** | **[LinkedIn](www.linkedin.com/in/anatolii-pysmennyi)**
